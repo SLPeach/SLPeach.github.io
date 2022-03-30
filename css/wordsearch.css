@@ -1,0 +1,509 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/*
+ * RESET
+ * SHARED
+ * POSTHEADER
+ * OUTPUT
+ * POSTFOOTER
+ */
+
+
+
+
+
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+#postWrapper * {
+	/* Prevents text boxes from expanding for the border width */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+    font-size: 1em;
+    color: black;
+}
+@import url('https://fonts.googleapis.com/css?family=Andika');
+
+
+
+
+
+/*------------------------------------*\
+    $SHARED
+\*------------------------------------*/
+
+.roundBorder {
+	-webkit-border-radius: .5rem;
+	-moz-border-radius: .5rem;
+	border-radius: .5rem;
+	outline: none;
+}
+.blueBorder {
+	border: 0.15rem solid #003E96;
+    box-shadow: 0.075rem 0.075rem #B8B8B8;
+}
+.blueBorder:hover, .blueBorder:focus {
+	border-color:#2288EE;
+}
+.blueBorder:focus {
+	-moz-box-shadow: inset 0 0 .15rem #2288EE;
+	-webkit-box-shadow: inset 0 0 .15rem #2288EE;
+	box-shadow: inset 0 0 .15rem #2288EE, 0.075rem 0.075rem #C8C8C8;
+}
+.grayBorder {
+	border: .15rem solid #BBB;
+}
+.grayBorder:hover, .grayBorder:focus {
+	border-color:#CCC;
+}
+.grayBorder:focus {
+	-moz-box-shadow: inset 0 0 .15rem #CCC;
+	-webkit-box-shadow: inset 0 0 .15rem #CCC;
+	box-shadow: inset 0 0 .15rem #CCC;
+}
+.unselectable {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+#postWrapper {
+	max-width: 1150px;
+    margin: 0 auto;
+}
+#postHeader, #output, #postFooter {
+	background-color: white;
+}
+.syllableShape {
+	background-color: #F8F8F8;
+}
+.ipa {
+	font-family: AndikaW, "Andika", "Gentium Plus","Charis SIL","Doulis SIL",Arial,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Times,Lucida;
+	font-size: 93%;
+}
+
+input[type="checkbox"] {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -.25rem;
+    *overflow: hidden;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 32px;
+    height: 18px;
+}
+
+.switch input {display:none;}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #aaa;
+    box-shadow: 0.075rem 0.075rem #B8B8B8;
+    -webkit-transition: .2s;
+    transition: .2s;
+    /*border: 1px solid #999;*/
+}
+
+.switch + .label {
+    position: relative;
+    bottom: 3px;
+    cursor: pointer;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2288EE;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2288EE;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+/*------------------------------------*\
+    $POSTHEADER
+\*------------------------------------*/
+#syllableCount {
+    position: relative;
+    bottom: .3rem;
+}
+#searchLink {
+    float: right;
+}
+.switch + label {
+    clear: right;
+}
+.groupHeading {
+    font-weight: bold;
+}
+
+/* Mobile Vertical */
+.searchInputForm {
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+    background-color: #DDDDDD;
+}
+.searchOptionsGroup, .searchInputGroup {
+	display: grid;
+	padding: .5rem;
+    grid-gap: .5rem;
+}
+.searchInputItem {
+    background-color: #F8F8F8;
+    padding: .5rem;
+}
+.searchOptionsGroup {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-auto-flow: row;
+}
+
+@media only screen and (min-width: 800px) {
+    /* Medium Screen */
+    .searchInputForm {
+        grid-template-columns: auto 230px;
+        grid-auto-flow: row;
+    }
+    .searchOptionsGroup {
+        grid-template-rows: repeat(auto-fill, minmax(1rem, 1fr));
+        grid-auto-flow: column;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    /* Wide Screen */
+    /*#postWrapper {
+        display: grid;
+        grid-template-columns: auto minmax(50%, 600px);
+        max-width: none;
+    }
+    .searchInputForm {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+        grid-auto-flow: column;
+    }
+    .searchOptionsGroup {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-auto-flow: row;
+    }*/
+}
+
+.label {
+    display: inline-block;
+    min-width: 4.5rem;
+}
+.inputGroup {
+	border: 1pt solid gray;
+	margin: .25rem 0;
+	padding: .25rem;
+}
+.inputBox {
+	min-height: 2rem;
+	line-height: 1rem;
+	padding: .25rem .5rem;
+	background-color: white;
+	margin: .25rem 0 0 0;
+}
+input.inputBox {
+    font-size: 1em;
+    /*width: 100%;*/
+    width: calc(100% - 1.5rem);
+}
+
+details[open] summary ~ * {
+    animation: open 0.3s ease-in-out;
+}
+@keyframes open {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+details summary::-webkit-details-marker {
+    display: none;
+}
+details summary {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+}
+
+details summary:after {
+    content: "❱❯";
+    color: #003E96;;
+    position: absolute;
+    font-size: 1.25rem;
+    line-height: 0;
+    margin-top: 1.25rem;
+    padding-left: 0.15rem;
+    text-shadow: 0.075rem 0.075rem #B8B8B8;
+    right: 0;
+    bottom: 0.5rem;
+    font-weight: 200;
+    transform-origin: center;
+    transition: 200ms linear;
+}
+details summary:hover:after {
+    color: #2288EE;
+}
+details[open] summary:after {
+    color: #2288EE;
+    transform: rotate(90deg);
+    text-shadow: 0.075rem -0.075rem #BBB;
+}
+details summary {
+    outline: 0;
+}
+.inputDetails {
+    margin: 0.5rem 0.25rem 0 0.25rem;
+}
+
+/* Adjustments for font-height differences */
+/*#MinPairInputBox, #OrthoInputBox {
+	padding-top: .4rem;
+}
+#PhonInputBox {
+	padding-top: .3rem;
+}
+.SingleLineContentEditable {
+	white-space: nowrap;
+	overflow: hidden;
+}
+.SingleLineContentEditable * {
+	display: inline;
+	white-space: nowrap;
+}
+.SingleLineContentEditable br {
+	display: none;
+}*/
+.positionSelector {
+	float: right;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+/*.SyllableShapeList {
+	list-style-type: none;
+}
+.SyllableShapeList>li {
+	vertical-align: middle;
+	display: inline;
+}
+.SyllableShape {
+	display: inline-block;
+	margin: .1rem .1rem .1rem 0;
+	border: 1pt solid gray;
+	padding: .2rem .25rem;
+	white-space: nowrap;
+	cursor: move;
+	height: 1.5rem;
+	vertical-align: middle;
+}
+.SyllableShape:hover {
+	background-color:#FFFFFF;
+	box-shadow: 0 0 .25rem gray;
+}
+.SyllableShape>select {
+	margin: -.1rem 0 0 .75rem;
+	vertical-align: middle;
+}*/
+/*
+.Handle {
+	height: .8rem;
+	width: .5rem;
+	display: inline-block;
+	margin: 0 .2rem 0 0;
+	background-color: #CCCCCC;
+	border: .1rem dotted gray;
+	vertical-align: middle;
+}
+*/
+.deleteButton, .clearButton {
+	-webkit-border-radius: 1rem;
+	   -moz-border-radius: 1rem;
+			border-radius: 1rem;
+	cursor: default;
+	height: .9rem;
+	line-height: .9rem;
+	width: .9rem;
+	background-color: transparent;
+	text-align: center;
+	display: inline-block;
+	color: gray;
+	font-size: .8rem;
+	font-family: Verdana;
+}
+/* For buttons that are contained within the attached element */
+.deleteButton {
+	margin-left: .15rem;
+	margin-right: -.1rem;
+	margin-top: -.1rem;
+	vertical-align: middle;
+}
+.clearButton {
+	position: relative;
+	float: right;
+	position: relative;
+	z-index: 100;
+	/*margin: 0 -.25rem 0 0;*/
+	margin: 0;
+	background-color: #CCCCCC;
+}
+.deleteButton:hover, .deleteButton:active
+{
+	background-color: red;
+	color: white;
+}
+.clearButton:hover, .ClearButton:active {
+	background-color: gray;
+	color: white;
+}
+.deleteButton:active {
+	/*border-top: .1rem solid gray;*/
+	background: #AA0000;
+}
+.clearButton:active {
+	/*border-top: .1rem solid black;*/
+	background-color: #666666;
+}
+.clearableWrapper {
+	/* allows wrapping around floating divs */
+	overflow: hidden;
+	/*padding: .25rem .25rem 0 0;*/
+	padding-top: .25rem;
+}
+.clearableDiv {
+	float: left;
+	width: 100%;
+	/* leave room for clear button */
+	margin-right: -1rem;
+	position: relative;
+	z-index: 0;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $OUTPUT
+\*------------------------------------*/
+#results {
+    background-color: #FEFEFE;
+	min-height: 15rem;
+	overflow: auto;
+	padding: .25rem;
+    margin-top: .5rem;
+    /*counter-reset: headwords;*/
+}
+.word {
+	padding: 0;
+	white-space: nowrap;
+	height: 1.7rem;
+	line-height: 1.7rem;
+	border-bottom: .1rem solid #abced4;
+}
+#results>.word:hover, #results>.word:active {
+	background-color: #F0F0F0;
+}
+.headWord, .wordPronunciation, .subWord {
+	z-index: 0;
+	display: inline-block;
+	background-color: transparent;
+	vertical-align: text-bottom;
+	padding: .2rem .25rem;
+	height: 1.7rem;
+	line-height: 1.7rem;
+}
+.headWord {
+	min-width: 8rem;
+}
+/*.headWord:before {
+    counter-increment: headwords;
+    content: counter(headwords) ". ";
+}*/
+.subWord {
+	min-width: 7rem;
+    margin-left: 1rem;
+    /*font-style: italic;*/
+}
+.subWord:before {
+    content: "• ";
+}
+.wordPronunciation {
+	min-width: 5rem;
+	padding: 0.1rem 0.25rem 0.2rem 0.25rem;
+}
+
+@media only screen and (min-width: 800px) {
+    .headWord {
+        min-width: 10rem;
+        font-weight: bold;
+    }
+    /*.headWord:before {
+        counter-increment: headwords;
+        content: counter(headwords) ". ";
+    }*/
+    .subWord {
+        min-width: 9rem;
+        margin-left: 1rem;
+        font-weight: bold;
+        /*font-style: italic;*/
+    }
+}
+@media only screen and (min-width: 1600px) {
+    /* Wide Screen */
+    /*#results {
+        margin-top: 0;
+        margin-left: .5rem;
+    }*/
+}

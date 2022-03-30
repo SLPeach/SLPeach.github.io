@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Site Prefix: https://sites.google.com/site/slptoolsdata/wordsearch3/ -->
+    <link rel="stylesheet" type="text/css" href="css/wordsearch.css">
+    <link rel="stylesheet" type="text/css" href="VirtualKeyboard/keyboard.css">
+    <script type="text/javascript" charset="UTF-8" src="src/dynamicjs.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="src/wordlist.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="src/phonicstable.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="src/wordsearch3.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="src/wordsearch3main.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="VirtualKeyboard/keyboard.js"></script>
+    <script type="text/javascript" charset="UTF-8">
+        window.onload = function (event) {
+            wordSearchController.initiate('searchInputForm', 'searchOptionsGroup', 'searchButton', 'results', 'resultCount');
+        }
+    </script>
+</head>
+<body>
+    <div id="postWrapper">
+        <div id="postHeader" class="postHeader roundBorder">
+            <div id="searchInputForm" class="searchInputForm roundBorder">
+                <div class="searchInputGroup">
+                    <div class="searchInputItem roundBorder">
+                        <label class="switch">
+                            <input type="checkbox" id="useSyllableCount" name="useSyllableCount">
+                            <span class="slider round"></span>
+                        </label>
+                        <label for="useSyllableCount" class="label">Number of syllables: </label>
+                        <select id="syllableCount">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="many">Many</option>
+                        </select>
+                    </div>
+                    <div class="searchInputItem roundBorder">
+                        <label class="switch">
+                            <input type="checkbox" id="useOrthographic" name="useOrthoSearch" checked="true">
+                            <span class="slider round"></span>
+                        </label>
+                        <label for="useOrthographic" class="label">Spelling pattern:</label>
+                        <select id="orthographicPosition" name="orthographicPosition" class="positionSelector">
+                            <option value="anywhere">Anywhere in word</option>
+                            <option value="whole">Whole word</option>
+                            <option value="begin">Beginning of word</option>
+                            <option value="end">End of word</option>
+                        </select>
+                        <details>
+                            <summary><input type="text" autocapitalize="none" placeholder="Type a spelling pattern" id="orthographicInput" name="orthographicInput" class="use-keyboard-input inputBox blueBorder roundBorder" autofocus="true" value=""></summary>
+                            <div class="inputDetails">This search will match the written word. Spell a segment of a word and fill in the gaps with patterns:
+                                <ul>
+                                    <li>Any vowel with (vowel) or just V (a, e, i, o, u, or y)</li>
+                                    <li>Any consonant with (consonant) or just C</li>
+                                    <li>A customized list with (<i>list_name</i>: a, b, c)</li>
+                                    <li>Repeat the custom list with just the name (<i>list_name</i>)</li>
+                                </ul>
+                                <div>These can all be combined to create general spelling patterns:</div>
+                                <ul>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:true,%22position%22:%22whole%22,%22pattern%22:%22CeC%22},%22phonetic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22syllabic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22minimalPair%22:{%22use%22:false,%22position%22:%22anywhere%22,%22pattern%22:%22%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">CeC (Whole word)</a> matches "bet," "yes," and "her."</li>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:true,%22position%22:%22begin%22,%22pattern%22:%22stV%22},%22phonetic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22syllabic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22minimalPair%22:{%22use%22:false,%22position%22:%22anywhere%22,%22pattern%22:%22%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">st(vowel) (Beginning of word)</a> matches "still," "state," and "styles."</li>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:true,%22position%22:%22end%22,%22pattern%22:%22(s_blend:%20st,%20sw,%20sp,%20sk,%20sl,%20sn,%20sm)V(s_blend)%22},%22phonetic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22syllabic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22minimalPair%22:{%22use%22:false,%22position%22:%22anywhere%22,%22pattern%22:%22%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">(s_blend: st, sw, sp, sk, sl, sn, sm)(vowel)(s_blend) (End of word)</a> matches "fastest," "spasm," and "glasnost."</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="searchInputItem roundBorder">
+                        <label class="switch">
+                            <input type="checkbox" id="usePhonetic" name="usePhonSearch" checked="true">
+                            <span class="slider round"></span>
+                        </label>
+                        <label for="usePhonetic" class="label">Sound pattern:</label>
+                        <select id="phoneticPosition" name="phoneticPosition" class="positionSelector">
+                            <option value="anywhere">Anywhere in word</option>
+                            <option value="whole">Whole word</option>
+                            <option value="begin">Beginning of word</option>
+                            <option value="end">End of word</option>
+                        </select>
+                        <details>
+                            <summary><input type="text" autocapitalize="none" placeholder="Type a sound pattern" id="phoneticInput" name="phoneticInput" class="use-keyboard-input inputBox blueBorder roundBorder ipa" value=""></summary>
+                            <div class="inputDetails">This search will match the spoken word. Spell the sounds of a segment of a word. The virtual keyboard includes special characters for sounds. Just press the <span>⎇</span> button.
+                                <p>Fill in the gaps with patterns:</p>
+                                <ul>
+                                    <li>Any vowel: (vowel) or V</li>
+                                    <li>Any consonant: (consonant) or C</li>
+                                    <li>A long vowel: (long_vowel) or L</li>
+                                    <li>A short vowel: (short_vowel) or S</li>
+                                    <li>A diphthong: (diphthong) or D</li>
+                                    <li>A voiced consonant: (voiced_consonant) or +V</li>
+                                    <li>A voiceless consonant: (voiceless_consonant) or -V</li>
+                                    <li>A stop consonant: (stop) or P</li>
+                                    <li>A fricative consonant: (fricative) or F</li>
+                                    <li>An affricate consonante: (affricate) or A</li>
+                                    <li>A customized list with (<i>list_name</i>: a, b, c)</li>
+                                    <li>Repeat the custom list with just the name (<i>list_name</i>)</li>
+                                </ul>
+                                <div>These can all be combined to create general speech sound patterns:</div>
+                                <ul>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22phonetic%22:{%22use%22:true,%22position%22:%22whole%22,%22pattern%22:%22ClVP%22},%22syllabic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22minimalPair%22:{%22use%22:false,%22position%22:%22anywhere%22,%22pattern%22:%22%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">ClVP (Whole word)</a> matches "black," "globe," and "slip."</li>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22phonetic%22:{%22use%22:true,%22position%22:%22begin%22,%22pattern%22:%22FL+V%22},%22syllabic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22minimalPair%22:{%22use%22:false,%22position%22:%22anywhere%22,%22pattern%22:%22%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">(fricative)(long_vowel)(voiced_consonant) (Beginning of word)</a> matches "these," "feel," and "human."</li>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22phonetic%22:{%22use%22:true,%22position%22:%22end%22,%22pattern%22:%22(s_blend:%20s-t,s-w,s-p,s-k,s-l,s-n,s-m)V(s_blend)%22},%22syllabic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22minimalPair%22:{%22use%22:false,%22position%22:%22anywhere%22,%22pattern%22:%22%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">(s_blend: st, sw, sp, sk, sl, sn, sm)(vowel)(s_blend) (End of word)</a> matches "distaste," "sliced," and "miscast."</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="searchInputItem roundBorder">
+                        <label class="switch">
+                            <input type="checkbox" id="useSyllablePattern" name="useSyllablePattern" checked="true">
+                            <span class="slider round"></span>
+                        </label>
+                        <label for="useSyllablePattern" class="label">Syllable pattern: </label>
+                        <select id="syllablePatternPosition" name="syllablePatternPosition" class="positionSelector">
+                            <option value="anywhere">Anywhere in word</option>
+                            <option value="whole">Whole word</option>
+                            <option value="begin">Beginning of word</option>
+                            <option value="end">End of word</option>
+                        </select>
+                        <!--<div id="syllablesInput" name="syllablesInput" class="inputBox blueBorder roundBorder"></div>-->
+                        <details>
+                            <summary><input type="text" autocapitalize="none" placeholder="Type a syllable pattern: (closed)(open)(silent_e)(vowel_team)(r_controlled)(consonant_le)" id="syllablePatternInput" name="syllablePatternInput" class="use-keyboard-input inputBox blueBorder roundBorder"></summary>
+                            <div class="inputDetails">This search finds regularly-spelled syllables with any of the following patterns:
+                                <ul>
+                                    <li>Closed: (closed) or C. A syllable with a short vowel sound and at least one consonant at the end, as in <i>act, belt, flick, prod,</i> or <i>jump</i>.</li>
+                                    <li>Open: (open) or O. Long vowel sound at the end of the word, or followed by another syllable, as in <i>able, we, I, go,</i> or <i>flu.</i></li>
+                                    <li>Silent-e: (silent_e), S, or E. Long vowel sound, followed by a single consonant and an unpronounced <i>e</i> as in <i>trade, here, quite, stone, rule,</i> or <i>use</i></li>
+                                    <li>Vowel Team: (vowel_team), V, or T. Long vowel sound, matching the first written vowel, followed by another vowel, including <i>y</i>, as in <i>way, three, lie, hoax, fruit,</i> or <i>due.</i></li>
+                                    <li>R-controlled: (r_controlled) or R: /or/ as in <l>orchid,</l> /ar/ as in <i>art,</i> and /er/ as in <i>herb, irk,</i> or <i>urn.</i></li>
+                                    <li>Consonant-le: (consonant_le) or L: Following another syllable, a single consonant and the letters <i>le</i>, producing the consonant's sound and /uhl/ as in <i>maple, trouble,</i> or <i>title.</i></li>
+                                </ul>
+                                <div>For example:</div>
+                                <ul>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22phonetic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22syllabic%22:{%22use%22:true,%22position%22:%22whole%22,%22pattern%22:%22OC%22},%22minimalPair%22:{%22use%22:false,%22position%22:%22anywhere%22,%22pattern%22:%22%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">(open)(closed) (whole word)</a> matches <i>ethos, frequent,</i> and <i>fluid.</i></li>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22phonetic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22syllabic%22:{%22use%22:true,%22position%22:%22begin%22,%22pattern%22:%22TL%22},%22minimalPair%22:{%22use%22:false,%22position%22:%22anywhere%22,%22pattern%22:%22%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">(vowel_team)(consonant_le) (beginning of word)</a> matches <i>eagle, steeplechase</i> and <i>needled.</i></li>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22phonetic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22syllabic%22:{%22use%22:true,%22position%22:%22end%22,%22pattern%22:%22RE%22},%22minimalPair%22:{%22use%22:false,%22position%22:%22anywhere%22,%22pattern%22:%22%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">RE (end of word)</a> matches <i>moderate, perfume</i> and <i>Marlene.</i></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="searchInputItem roundBorder">
+                        <label class="switch">
+                            <input type="checkbox" id="useMinPair" name="useMinPair" checked="true">
+                            <span class="slider round"></span>
+                        </label>
+                        <label for="useMinPair" class="label">Minimal pair:</label>
+                        <select id="minPairPosition" name="minPairPosition" class="positionSelector">
+                            <option value="anywhere">Anywhere in word</option>
+                            <option value="whole">Whole word</option> <!--Not useful, though technically valid-->
+                            <option value="begin">Beginning of word</option>
+                            <option value="end">End of word</option>
+                        </select>
+                        <details>
+                            <summary><input type="text" autocapitalize="none" placeholder="Type a minimal pair (e.g., sound 1/sound 2)" id="minPairInput" name="minPairInput" class="use-keyboard-input inputBox blueBorder roundBorder ipa" value=""></summary>
+                            <div class="inputDetails">This search matches pairs of words that differ by one sound. Choose two sounds (or sound sequences), separating them with a slash <b>/</b>. (empty), or 0, represents no sound.
+                                <ul>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22phonetic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22syllabic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22minimalPair%22:{%22use%22:true,%22position%22:%22anywhere%22,%22pattern%22:%22p/b%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">p/b</a> matches <i>prior-briar, played-blade,</i> and <i>lap-lab.</i></li>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22phonetic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22syllabic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22minimalPair%22:{%22use%22:true,%22position%22:%22anywhere%22,%22pattern%22:%22s-t/t%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">st/t</a> matches <i>most-moat, still-till,</i> and <i>based-bait</i></li>
+                                    <li><a href="#q={%22syllableCount%22:{%22use%22:false,%22count%22:%221%22},%22orthographic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22phonetic%22:{%22use%22:false,%22position%22:%22end%22,%22pattern%22:%22%22},%22syllabic%22:{%22use%22:false,%22position%22:%22whole%22,%22pattern%22:%22%22},%22minimalPair%22:{%22use%22:true,%22position%22:%22anywhere%22,%22pattern%22:%22m/0%22},%22wordListLimit%22:%2260000%22,%22resultsLimit%22:%22500%22,%22phonicsAlphabet%22:%22IPA%22,%22showPronunciation%22:true,%22showStress%22:false,%22enableKeyboard%22:false}">m/(empty)</a> matches <i>more-or, time-tie,</i> and <i>seemed-seed.</i></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="searchInputItem roundBorder">
+                        <input type="button" id="searchButton" name="searchBtn" value="Search">
+                        <select id="wordListLimit" name="wordListLimit">
+                            <option value="10000">10k words</option>
+                            <option value="20000" selected="selected">20k words</option>
+                            <option value="30000">30k words</option>
+                            <option value="40000">40k words</option>
+                            <option value="50000">50k words</option>
+                            <option value="60000">60k words</option>
+                        </select>
+                        <a href="" id="searchLink" name="searchLink">Link to this search <span id="resultCount"></span></a>
+                    </div>
+                </div>
+                <div id="searchOptionsGroup" class="searchOptionsGroup">
+                    <div class="groupHeading">Options:</div>
+                    <div>
+                        <label for="maxWordCount" class="label">Show first</label>
+                        <select id="maxWordCount" name="maxWordCount">
+                            <option value="500" selected="selected">500 results</option>
+                            <option value="1000">1000 results</option>
+                            <option value="2000">2000 results</option>
+                            <option value="4000">4000 results</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="label" for="phonicsAlphabet">Phonics:</label>
+                        <select id="phonicsAlphabet" name="phonicsAlphabet" value="ipa">
+                            <option value="IPA">IPA</option>
+                            <option value="Diacritics">Diacritics</option>
+                            <option value="ARPAbet">ARPAbet</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="showPhonics" name="showPhonics" checked="true">
+                            <span class="slider round"></span>
+                        </label>
+                        <label for="showPhonics" class="label">Show pronunciation</label>
+                    </div>
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="showStress" name="showStress">
+                            <span class="slider round"></span>
+                        </label>
+                        <label for="showStress" class="label">Show syllable stress</label>
+                    </div>
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="enableKeyboard" name="enableKeyboard" checked="true">
+                            <span class="slider round"></span>
+                        </label>
+                        <label for="enableKeyboard" class="label">Virtual keyboard</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="results" class="roundBorder grayBorder">
+            <!-- Empty by default -->
+        </div>
+    </div>
+</body>
+</html>

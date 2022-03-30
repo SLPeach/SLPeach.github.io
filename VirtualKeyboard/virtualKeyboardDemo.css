@@ -1,0 +1,85 @@
+.keyboard {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    background: #003E96;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.5);
+    user-select: none;
+    transition: bottom 0.4s;
+}
+
+.keyboard.hidden {
+    bottom: -100%;
+}
+
+.keyboard .keys {
+    text-align: center;
+}
+
+.key, .key.standard {
+    font-family: AndikaW, "Andika", "Gentium Plus","Charis SIL","Doulis SIL",Arial,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Times,Lucida;
+    height: 3rem;
+    width: 6%;
+    max-width: 4rem;
+    margin: 0rem;
+    border-radius: 0.3rem;
+    border: 0.15rem solid #003E96;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 1.5rem;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
+
+.key:active {
+    background: rgba(255, 255, 255, 0.12);
+}
+.key.wide {
+    width: 9%;
+    max-width: 6rem;
+}
+.key.extraWide {
+    width: 12%;
+    max-width: 8rem;
+}
+.key.ultraWide {
+    width: 36%;
+    max-width: 24rem;
+}
+
+.key.activatable::after {
+    content: '';
+    top: 0.5rem;
+    right: 0.5rem;
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+}
+
+.key.active::after {
+    background: #0FFF00;
+}
+
+.key.raised {
+    border-style: outset;
+    border-color: rgba(0, 0, 0, 0.8);
+    height: 2.8rem;
+    width: 6% - 0.2rem;
+    max-width: 3.8rem;
+    margin: 0.1rem;
+}
+.key.raised:active {
+    border-style: inset;
+    padding: 0.2rem 0 0 0.2rem;
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,4 +29,36 @@
 	<textarea id="output" readonly></textarea>
     <div id="results"></div>
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/wordsearch.css">
+    <style>
+        #output {
+            resize: none;
+            margin: 1em;
+            width: 40em;
+            height: 15em;
+        }
+    </style>
+    <script type="application/javascript" charset="utf-8" src="src/FluencyTimer.js"></script>
+    <script type="text/javascript" charset="UTF-8">
+        window.onload = function (event) {
+            var ft = new FluencyTimer();
+            ft.init(
+                document.getElementById("output"),
+                document.getElementById("results"),
+                document.getElementById("startButton"),
+                document.getElementById("stopButton")
+            );
+        }
+    </script>
+</head>
+<body>
+    <button id="startButton">Start</button> <button id="stopButton">Stop</button>
+	<textarea id="output" readonly></textarea>
+    <div id="results"></div>
+</body>
+>>>>>>> e57cf581c2401c058dec574a0223b11eb665fde3
 </html>

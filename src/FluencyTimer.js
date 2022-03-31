@@ -9,7 +9,7 @@ class FluencyTimer {
         this.results = {
             sampleTime: 0,
             fluentSyllables: 0,
-            dysfluentSyllables: 0,
+            disfluentSyllables: 0,
             mean3Longest: 0
         };
 	}
@@ -70,7 +70,7 @@ class FluencyTimer {
     calculateResults() {
         this.results.sampleTime = this.stopTime - this.startTime;
         
-        let dysfluentLengths = [];
+        let disfluentLengths = [];
         let syllable = {};
         
         for (let index in this.syllableLog) {
@@ -79,19 +79,21 @@ class FluencyTimer {
             if (syllable.type == "fluent") {
                 this.results.fluentSyllables++;
             } else {
-                this.results.dysfluentSyllables++;
-                dysfluentLengths.push(syllable.time);
+                this.results.disfluentSyllables++;
+                disfluentLengths.push(syllable.time);
             }
         }
         
-        let sortedLengths = dysfluentLengths.sort();
+        let sortedLengths = disfluentLengths.sort();
         this.results.mean3Longest = (sortedLengths[0] + sortedLengths[1] + sortedLengths[2]) / 3.0;
     }
     
     outputResults() {
-        console.log(`Time: ${this.results.sampleTime}\nFluent: ${this.results.fluentSyllables}\nDysfluent: ${this.results.dysfluentSyllables}\nMean: ${this.results.mean3Longest}`)
-        this.resultsArea.innerHTML = `<table><tr><th>Sample Time</th><th>Fluent</th><th>Dysfluent</th><th>Mean 3 Longest</th></tr>
-<tr><td>${this.results.sampleTime}</td><td>${this.results.fluentSyllables}</td><td>${this.results.dysfluentSyllables}</td><td>${this.results.mean3Longest}</td></tr></table>`;
+        this.resultsArea.innerHTML = `<table>
+<tr><th>Sample Time</th><td>${this.results.sampleTime / 1000.0}</td></tr>
+<tr><th>Fluent</th><td>${this.results.fluentSyllables}</td></tr>
+<tr><th>Disfluent</th><td>${this.results.disfluentSyllables}</td></tr>
+<tr><th>Mean 3 Longest</th><td>${this.results.mean3Longest}</td></tr>
+</table>`;
     }
->>>>>>> e57cf581c2401c058dec574a0223b11eb665fde3
 }

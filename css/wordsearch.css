@@ -507,3 +507,29 @@ details summary {
         margin-left: .5rem;
     }*/
 }
+/*------------------------------------*\
+    Fluency Timer
+    $SYLLABLELOG
+\*------------------------------------*/
+#syllableLogContainer {
+    width: 40rem;
+    margin: 0.5rem 0 0.5rem 0;
+    background-color: #DDDDDD;
+}
+#syllableLogContainer summary {
+    margin: 0.25rem 0;
+}
+#syllableLog {
+    resize: none;
+    margin: 0.5rem;
+    width: 38.5rem;
+    height: 15em;
+}
+/*------------------------------------*\
+    Fluency Timer
+    $OUTPUT
+\*------------------------------------*/
+#results th {
+    text-align: left;
+    width: 10rem;
+}

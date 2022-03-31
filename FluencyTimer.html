@@ -2,20 +2,12 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="css/wordsearch.css">
-    <style>
-        #output {
-            resize: none;
-            margin: 1em;
-            width: 40em;
-            height: 15em;
-        }
-    </style>
     <script type="application/javascript" charset="utf-8" src="src/FluencyTimer.js"></script>
     <script type="text/javascript" charset="UTF-8">
         window.onload = function (event) {
             var ft = new FluencyTimer();
             ft.init(
-                document.getElementById("output"),
+                document.getElementById("syllableLog"),
                 document.getElementById("results"),
                 document.getElementById("startButton"),
                 document.getElementById("stopButton")
@@ -24,9 +16,22 @@
     </script>
 </head>
 <body>
-    <button id="startButton">Start</button> <button id="stopButton">Stop</button>
-	<textarea id="output" readonly></textarea>
-    <div id="results"></div>
+    <div id="postWrapper">
+        <div><button id="startButton">Start</button> <button id="stopButton">Stop</button></div>
+        <div id="results" class="roundBorder blueBorder">
+            <table>
+                <tr><th>Sample Time</th><td></td></tr>
+                <tr><th>Fluent</th><td></td></tr>
+                <tr><th>Disfluent</th><td></td></tr>
+                <tr><th>Mean 3 Longest</th><td></td></tr>
+            </table>
+        </div>
+        <div id="syllableLogContainer" class="roundBorder grayBorder">
+            <details>
+                <summary>&nbsp;Syllable Log</summary>
+                <div><textarea id="syllableLog" readonly></textarea></div>
+            </details>
+        </div>
+    </div>
 </body>
->>>>>>> e57cf581c2401c058dec574a0223b11eb665fde3
 </html>

@@ -3,10 +3,10 @@
 title: SLP Tools
 ---
 
-### [Word Search](wordsearch.html)
+### [Word Search](WordSearch.html)
 Find words by spelling, pronunciation, written syllable pattern, or in minimal pairs
 
-### [Fluency Counter](fluencycounter.html)
+### [Fluency Counter](FLuencyTimer.html)
 =======
 ---
 title: SLP Tools

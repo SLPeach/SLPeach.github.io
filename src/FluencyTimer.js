@@ -90,10 +90,10 @@ class FluencyTimer {
     
     outputResults() {
         this.resultsArea.innerHTML = `<table>
-<tr><th>Sample Time</th><td>${this.results.sampleTime / 1000.0}</td></tr>
+<tr><th>Sample Time</th><td>${ (this.results.sampleTime / 1000.0).toFixed(1)}s</td></tr>
 <tr><th>Fluent</th><td>${this.results.fluentSyllables}</td></tr>
 <tr><th>Disfluent</th><td>${this.results.disfluentSyllables}</td></tr>
-<tr><th>Mean 3 Longest</th><td>${this.results.mean3Longest}</td></tr>
+<tr><th>Mean 3 Longest</th><td>${ (this.results.mean3Longest / 1000.0).toFixed(1)}s</td></tr>
 </table>`;
     }
 }

@@ -196,7 +196,7 @@ input:checked + .slider:before {
 	padding: .5rem;
     grid-gap: .5rem;
 }
-.searchInputItem {
+.searchInputItem, #contentAdvisory {
     background-color: #F8F8F8;
     padding: .5rem;
 }

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Cut off blog post before loading any data: -->
+<!-- more -->
 
 <head>
+    <title>Word Search: Spelling, Sounds, Syllables, and Minimal Pairs</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Site Prefix: https://sites.google.com/site/slptoolsdata/wordsearch3/ -->
-    <link rel="stylesheet" type="text/css" href="css/wordsearch.css">
+    <link rel="stylesheet" type="text/css" href="wordsearch.css">
     <link rel="stylesheet" type="text/css" href="VirtualKeyboard/keyboard.css">
     <script type="text/javascript" charset="UTF-8" src="src/dynamicjs.js"></script>
     <script type="text/javascript" charset="UTF-8" src="src/wordlist.js"></script>
@@ -45,7 +48,7 @@
                     </div>
                     <div class="searchInputItem roundBorder">
                         <label class="switch">
-                            <input type="checkbox" id="useOrthographic" name="useOrthoSearch" checked="true">
+                            <input type="checkbox" id="useOrthographic" name="useOrthoSearch" checked="checked">
                             <span class="slider round"></span>
                         </label>
                         <label for="useOrthographic" class="label">Spelling pattern:</label>
@@ -56,7 +59,7 @@
                             <option value="end">End of word</option>
                         </select>
                         <details>
-                            <summary><input type="text" autocapitalize="none" placeholder="Type a spelling pattern" id="orthographicInput" name="orthographicInput" class="use-keyboard-input inputBox blueBorder roundBorder" autofocus="true" value=""></summary>
+                            <summary><input type="text" autocapitalize="none" placeholder="Type a spelling pattern" id="orthographicInput" name="orthographicInput" class="use-keyboard-input inputBox blueBorder roundBorder" autofocus value=""></summary>
                             <div class="inputDetails">This search will match the written word. Spell a segment of a word and fill in the gaps with patterns:
                                 <ul>
                                     <li>Any vowel with (vowel) or just V (a, e, i, o, u, or y)</li>
@@ -75,7 +78,7 @@
                     </div>
                     <div class="searchInputItem roundBorder">
                         <label class="switch">
-                            <input type="checkbox" id="usePhonetic" name="usePhonSearch" checked="true">
+                            <input type="checkbox" id="usePhonetic" name="usePhonSearch" checked="checked">
                             <span class="slider round"></span>
                         </label>
                         <label for="usePhonetic" class="label">Sound pattern:</label>
@@ -114,7 +117,7 @@
                     </div>
                     <div class="searchInputItem roundBorder">
                         <label class="switch">
-                            <input type="checkbox" id="useSyllablePattern" name="useSyllablePattern" checked="true">
+                            <input type="checkbox" id="useSyllablePattern" name="useSyllablePattern" checked="checked">
                             <span class="slider round"></span>
                         </label>
                         <label for="useSyllablePattern" class="label">Syllable pattern: </label>
@@ -133,7 +136,7 @@
                                     <li>Open: (open) or O. Long vowel sound at the end of the word, or followed by another syllable, as in <i>able, we, I, go,</i> or <i>flu.</i></li>
                                     <li>Silent-e: (silent_e), S, or E. Long vowel sound, followed by a single consonant and an unpronounced <i>e</i> as in <i>trade, here, quite, stone, rule,</i> or <i>use</i></li>
                                     <li>Vowel Team: (vowel_team), V, or T. Long vowel sound, matching the first written vowel, followed by another vowel, including <i>y</i>, as in <i>way, three, lie, hoax, fruit,</i> or <i>due.</i></li>
-                                    <li>R-controlled: (r_controlled) or R: /or/ as in <l>orchid,</l> /ar/ as in <i>art,</i> and /er/ as in <i>herb, irk,</i> or <i>urn.</i></li>
+                                    <li>R-controlled: (r_controlled) or R: /or/ as in <i>orchid,</i> /ar/ as in <i>art,</i> and /er/ as in <i>herb, irk,</i> or <i>urn.</i></li>
                                     <li>Consonant-le: (consonant_le) or L: Following another syllable, a single consonant and the letters <i>le</i>, producing the consonant's sound and /uhl/ as in <i>maple, trouble,</i> or <i>title.</i></li>
                                 </ul>
                                 <div>For example:</div>
@@ -147,7 +150,7 @@
                     </div>
                     <div class="searchInputItem roundBorder">
                         <label class="switch">
-                            <input type="checkbox" id="useMinPair" name="useMinPair" checked="true">
+                            <input type="checkbox" id="useMinPair" name="useMinPair" checked="checked">
                             <span class="slider round"></span>
                         </label>
                         <label for="useMinPair" class="label">Minimal pair:</label>
@@ -176,14 +179,15 @@
                             <option value="30000">30k words</option>
                             <option value="40000">40k words</option>
                             <option value="50000">50k words</option>
-                            <option value="60000">60k words</option>
+                            <option value="100000">All words</option>
                         </select>
-                        <a href="" id="searchLink" name="searchLink">Link to this search <span id="resultCount"></span></a>
+                        <a href="" id="searchLink">Link to this search <span id="resultCount"></span></a>
                     </div>
                     <div id="contentAdvisory" class="roundBorder grayBorder">
                         <details>
                             <summary>Content Advisory: <b>Check every word before use</b></summary>
-                            <p>Words in these lists may not be appropriate for all ages or clients. For example, "Bradley" is a common name, easily placing in the top 10,000 words; however, it is also the name for a military vehicle and a former pediatrician who was sentenced to life without parole. Similarly, "desert" is a land feature, but people who have crossed one may find those memories traumatic. Finally, the list includes a variety of vulgar and offensive words.</p>
+                            <p>Words in these lists may not be appropriate for all ages or clients. For example, "Bradley" is a common name, easily placing in the top 10,000 words; however, it is also the name for a military vehicle and a former pediatrician who was sentenced to life without parole. Similarly, "desert" is a land feature, but people who have crossed one may find those memories traumatic. Finally, the list includes a variety of vulgar and offensive words. Many words are marked as possibly controversial, like this:</p>
+                            <span class="headWord controversialWord">controversial</span>
                         </details>
                     </div>
                 </div>
@@ -206,9 +210,27 @@
                             <option value="ARPAbet">ARPAbet</option>
                         </select>
                     </div>
+                    <!--
                     <div>
                         <label class="switch">
-                            <input type="checkbox" id="showPhonics" name="showPhonics" checked="true">
+                            <input type="checkbox" id="markControversial" name="markControversial" checked="checked">
+                            <span class="slider round"></span>
+                        </label>
+                        <label for="markControversial" class="label">Mark controversial words</label>
+                    </div>
+                    -->
+                    <!--
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="showFrequency" name="showFrequency">
+                            <span class="slider round"></span>
+                        </label>
+                        <label for="showFrequency" class="label">Show frequency</label>
+                    </div>
+                    -->
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="showPhonics" name="showPhonics" checked="checked">
                             <span class="slider round"></span>
                         </label>
                         <label for="showPhonics" class="label">Show pronunciation</label>
@@ -222,7 +244,7 @@
                     </div>
                     <div>
                         <label class="switch">
-                            <input type="checkbox" id="enableKeyboard" name="enableKeyboard" checked="true">
+                            <input type="checkbox" id="enableKeyboard" name="enableKeyboard" checked="checked">
                             <span class="slider round"></span>
                         </label>
                         <label for="enableKeyboard" class="label">Virtual keyboard</label>

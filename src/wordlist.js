@@ -4,7 +4,7 @@ function WordList() {
     this.loadedFromLocal = false;
     this.listText = "";
     this.listArray = [];
-    this.scriptURL = "wordlist-data.js";
+    this.scriptURL = "src/wordlist-data.js";
 }
 
 WordList.prototype = {

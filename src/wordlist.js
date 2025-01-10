@@ -1,15 +1,10 @@
 function WordList() {
     "use strict";
-    this.version = 2.6;
+    this.version = 3.01;
     this.loadedFromLocal = false;
     this.listText = "";
     this.listArray = [];
-//    this.scriptURL = (window.location.protocol === "file:")
-//        // Local copy, must be in same directory
-//        ? "src/wordlist-data.js"
-//        // Remote copy
-//        : "https://sites.google.com/site/slptoolsdata/wordsearch3/wordlist-data.js";
-    this.scriptURL = "src/wordlist-data.js";
+    this.scriptURL = "wordlist-data.js";
 }
 
 WordList.prototype = {
@@ -23,11 +18,15 @@ WordList.prototype = {
         // Divide into word-pronunciation pairs
         let entryList = txt.split(/[\r\n]/g);
         let temp = [];
+        let tempWordData = [];
 
         return entryList.map(function (entry) {
             temp = entry.split("\t");
+            tempWordData = temp[0].split(/\+/g);
             return {
-                word: temp[0],
+                word: tempWordData[0],
+                controversial: tempWordData[1] != "0",
+                frequency: parseInt(tempWordData[2], 10),
                 pronunciations: temp[1].replace(/\d+/g, "").split(/,/g),
                 pronunciationsWithStress: temp[1].split(/,/g)
             };

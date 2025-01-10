@@ -97,7 +97,7 @@ input[type="checkbox"] {
     vertical-align: bottom;
     position: relative;
     top: -.25rem;
-    *overflow: hidden;
+    overflow: hidden;
 }
 .switch {
     position: relative;
@@ -208,7 +208,7 @@ input:checked + .slider:before {
 @media only screen and (min-width: 800px) {
     /* Medium Screen */
     .searchInputForm {
-        grid-template-columns: auto 230px;
+        grid-template-columns: auto 250px;
         grid-auto-flow: row;
     }
     .searchOptionsGroup {
@@ -483,21 +483,23 @@ details summary {
 	min-width: 5rem;
 	padding: 0.1rem 0.25rem 0.2rem 0.25rem;
 }
+.controversialWord:after {
+    content: "*";
+}
+.controversialWord {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+}
 
 @media only screen and (min-width: 800px) {
     .headWord {
         min-width: 10rem;
         font-weight: bold;
     }
-    /*.headWord:before {
-        counter-increment: headwords;
-        content: counter(headwords) ". ";
-    }*/
     .subWord {
         min-width: 9rem;
         margin-left: 1rem;
         font-weight: bold;
-        /*font-style: italic;*/
     }
 }
 @media only screen and (min-width: 1600px) {
@@ -506,30 +508,4 @@ details summary {
         margin-top: 0;
         margin-left: .5rem;
     }*/
-}
-/*------------------------------------*\
-    Fluency Timer
-    $SYLLABLELOG
-\*------------------------------------*/
-#syllableLogContainer {
-    width: 40rem;
-    margin: 0.5rem 0 0.5rem 0;
-    background-color: #DDDDDD;
-}
-#syllableLogContainer summary {
-    margin: 0.25rem 0;
-}
-#syllableLog {
-    resize: none;
-    margin: 0.5rem;
-    width: 38.5rem;
-    height: 15em;
-}
-/*------------------------------------*\
-    Fluency Timer
-    $OUTPUT
-\*------------------------------------*/
-#results th {
-    text-align: left;
-    width: 10rem;
 }

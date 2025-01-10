@@ -333,6 +333,8 @@ class WordSearchController {
             wordListLimit: this.rawInputValues.get("wordListLimit"),
             resultsLimit: this.rawInputValues.get("maxWordCount"),
             phonicsAlphabet: this.rawInputValues.get("phonicsAlphabet"),
+            markControversial: this.rawInputValues.get("markControversial"),
+            showFrequency: this.rawInputValues.get("showFrequency"),
             showPronunciation: this.rawInputValues.get("showPhonics"),
             showStress: this.rawInputValues.get("showStress"),
             enableKeyboard: this.rawInputValues.get("enableKeyboard")
@@ -511,7 +513,6 @@ class WordSearchController {
     ${(word.pronunciationsWithStress.map((p) => formatPronunciation(p))).join(" ")}
 </div>`;
             } else {
-                // FIXME: returns stressed /ʌ/ as /ə/ b/c w/o stress there's no programmatic way to distinguish them
                 formatWord = (word, wordClass) =>
 `<div class="word">
     <span class="${wordClass}">${word.word}</span>
@@ -530,11 +531,12 @@ class WordSearchController {
         if (this.searchValues.minimalPair.use) {
             let formattedWords = cutResults.map(function (headWord) {
                 let minPairArray = [...headWord.minPairs];
-                return formatWord(headWord, "headWord") + minPairArray.map((pairWord) => formatWord(pairWord, "subWord")).join(" ");
+                return formatWord(headWord, headWord.controversial ? "headWord controversialWord" : "headWord") +
+                    minPairArray.map((pairWord) => formatWord(pairWord, pairWord.controversial ? "subWord controversialWord" : "subWord")).join(" ");
             });
             this.divResults.innerHTML = formattedWords.join("");
         } else {
-            this.divResults.innerHTML = cutResults.map((word) => formatWord(word, "headWord")).join("");
+            this.divResults.innerHTML = cutResults.map((word) => formatWord(word, word.controversial ? "headWord controversialWord" : "headWord")).join("");
         }
     }
 }

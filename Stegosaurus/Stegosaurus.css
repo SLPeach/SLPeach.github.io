@@ -1,0 +1,30 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+@media (max-width: 800px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+#InputSection, #OutputSection {
+    width: 100%;
+}
+
+#InputSection, #OutputSection, #ControlSection #RemStego, #HighlightNonwords {
+    padding: 0.2rem;
+    margin: 0.2rem;
+}
+
+#ControlSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea {
+    min-height: 10rem;
+    width: calc(100% - 0.8rem);
+}

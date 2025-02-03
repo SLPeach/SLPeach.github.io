@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Stegosaurus: Attempt to Remove Text Steganography</title>
+        <link rel="stylesheet" type="text/css" href="Stegosaurus.css">
+        <script src="Stegosaurus.js"></script>
+        <script src="stego_enwiki.js"></script>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div id="InputSection">
+                <label for="Input">Input:</label><br>
+                <textarea id="Input"></textarea>
+            </div>
+            <div id="OutputSection">
+                <label for="Output">Output:</label><br>
+                <textarea id="Output" readonly></textarea>
+            </div>
+        </div>
+        <div id="ControlSection" class="flex-container">
+            <button id="RemStego" type="button" onclick="runStegosaurus()">Remove Steganography</button><br>
+            <button id="HighlightNonwords" type="button" onclick="highlightNonwords()">Highlight Nonwords</button>
+        </div>
+    </body>
+</html>
